@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://uat.ezycommerce.com/signup/ -->
+<html ng-app="ezyCommerce" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}</style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ezyCommerce</title>
+    <link rel="stylesheet" href="http://uat.ezycommerce.com/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://uat.ezycommerce.com/styles/signup.css">
+    <script src="./ezyCommerce_files/cb=gapi.loaded_0" async=""></script><script type="text/javascript" async="" src="./ezyCommerce_files/recaptcha__en.js"></script>
+    <script type="text/javascript" src="./ezyCommerce_files/jquery.min.js"></script>
+    <script type="text/javascript" src="./ezyCommerce_files/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./ezyCommerce_files/angular.min.js"></script>
+    <script type="text/javascript" src="./ezyCommerce_files/angular-validator.min.js"></script>
+    <script type="text/javascript" src="./ezyCommerce_files/underscore-min.js"></script>
+    <script type="text/javascript" src="./ezyCommerce_files/signup.js"></script>
+    <script type="text/javascript" src="./ezyCommerce_files/angular-no-captcha.js"></script>
+<script type="text/javascript" charset="UTF-8" src="./ezyCommerce_files/api.js" gapi_processed="true"></script></head>
+
+<body ng-controller="myController" class="ng-scope">
+
+<header class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">  
+        <a class="navbar-brand hidden-xs siteLogo" href="http://uat.ezycommerce.com/signup/#/home"><span class="ezyHide">ezy<strong>Commerce</strong></span>&nbsp;</a> 
+        <a class="navbar-brand visible-xs mobsitelogo" href="http://uat.ezycommerce.com/signup/#/home"></a> 
+    </div>
+</header>
+<section class="container-fixed">
+    <!--step 1-->
+    <div class="row" ng-show="currentStep == 1">
+        <div class="col-xs-12">
+            <div class="panel-group">
+                <div class="row">
+                    <ul class="steps">
+                        <li class="select col-xs-12 col-sm-4 xstxt-marbtm"><span><img src="./ezyCommerce_files/step1-select.png"></span><span>Account Setup</span></li>
+                        <li class="col-xs-12 col-sm-4 xstxt-marbtm signupheadpadd"><span><img src="./ezyCommerce_files/step2.png"></span><span>Business Information</span></li>
+                        <li class="col-xs-12 col-sm-4 xstxt-marbtm signupheadtxtRight"><span><img src="./ezyCommerce_files/step3.png"></span><span>Verify &amp; Create Account</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="notificationContainer container-fluid" id="removeNotificationMsgs" notification-messages=""><!-- ngRepeat: showMsg in $root.notificationMessages track by $index --></div>
+            <h2>Get Started Now!</h2>
+            <div class="row">
+                <div class="col-sm-12 paddnone">We’re really excited that you’re interested to sign up for ezyCommerce. Please have the following information ready before you begin</div>
+            </div>
+            <div class="paddnone">
+                <ul>
+                    <li>A valid email that you have access to</li>
+                    <li>Your registered company name and address</li>
+                    <li>Your Company registration identification (UEN/GSTN)</li>
+                    <li>A valid contact number that will allow us to reach you during the registration process</li>
+                </ul>
+            </div>
+            <form class="signuppanel ng-pristine ng-valid-email ng-invalid ng-invalid-required ng-valid-maxlength ng-invalid-angular-validator" name="formStep1" id="formStep1" novalidate="" angular-validator="" angular-validator-submit="next()">
+                <div class="panel-group">
+                    <div class="row">
+                        <h3>Credentials Setup</h3>
+
+                        <div class="row emailuserlbl">
+
+                            <div class="col-md-5 col-sm-5">
+                                <div class="form-group required has-error" ng-class="{&#39;has-error&#39;:(!emailAvailableSuccess  &amp;&amp; emailFormatError)}">
+                                    <label for="accountSetupEmail" class="control-label">Email Address</label>
+                                    <input name="accountSetupEmail" vlaue="glbsng@gmail.com" type="email" class="form-control ng-pristine ng-valid-email ng-invalid ng-invalid-required ng-valid-maxlength ng-touched" ng-class="{'has-success':(emailAvailableSuccess  &amp;&amp; !emailFormatError)}" id="accountSetupEmail" placeholder="abc@xyz.com" ng-model="model.email" required="" required-message="validationMessages.required" invalid-message="validationMessages.invalidemail" maxlength="60" ng-blur="checkEmailAvail()">
+                                </div>
+                            </div>
+                              
+                          
+                            
+                                <!-- <span ng-show="!emailFormatError" ng-if="emailFormatError" class="glyphicon glyphicon-ok-tick"></span>
+                                <span ng-show="emailAvailableError"   ng-if="emailAvailableError" class="glyphicon glyphicon-remove-cross"></span>-->
+                                
+                               
+
+                            <div class="col-md-6 col-sm-6 help-note-right">
+                                <em class="text-grey">This will be your username. Kindly make sure that you can access this email. We will send a verification link to this email after you SignUp.</em>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-5 col-sm-5">
+                                <div class="form-group required marbtm0">
+                                    <label for="account-setup-password" class="control-label">Password</label>
+
+                                    <input value="Glb@2010" name="account-setup-password" type="password" class="form-control ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-invalid-angular-validator ng-touched" id="account-setup-password" ng-model="model.password" required="" required-message="validationMessages.required" maxlength="20" validator="isPasswordFormat(model.password)" invalid-message="pwErrorMessage1" ng-class="{&#39;has-success&#39;:isPasswordFormat(model.password)}">
+                                </div>
+                            </div>
+                             <div class="col-md-1 col-sm-1 pull-left paddnone">
+                                <span ng-show="isPasswordFormat(model.password)" class="glyphicon glyphicon-ok-tick ng-hide"></span>
+                                <!-- ngIf: model.password.length -->
+                            </div>
+                            
+                           <div class="clear-fix"></div>
+                         
+
+                            <div class="col-md-5 col-sm-5">
+                                <div class="form-group required marbtm0">
+                                    <label for="account-setup-retype-password" class="control-label">Retype Password</label>
+
+                                    <input value="Glb@2010" name="account-setup-retype-password" type="password" class="form-control ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-invalid-angular-validator ng-touched" id="account-setup-retype-password" ng-model="model.retypePwd" required="" validator="isPasswordMatch(model.password, model.retypePwd)" invalid-message="pwErrorMessage" required-message="validationMessages.required" maxlength="20" ng-class="{&#39;has-success&#39;:checkRetypePasswordError(model.password, model.retypePwd)}">
+                                </div>
+                            </div>
+
+                           <div class="col-md-1 col-sm-1 pull-left paddnone">
+                                <span ng-show="isPasswordMatch(model.password, model.retypePwd)" class="glyphicon glyphicon-ok-tick ng-hide"></span>
+                                <!-- ngIf: model.retypePwd.length&&model.password.length -->
+                            </div>
+
+                             <div class="clear-fix"></div>
+                         
+                        </div>
+                        <div class="row">
+                            <em class="text-muted text-descrip-close text-grey">Password should be 8 - 20 characters long. At least one upper case alphabet, one number and one special character like '@', '_', '!'.</em>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <h3>Account Information</h3>
+                        <div class="row">
+                            <div class="col-md-5 col-sm-5">
+                                <div class="form-group required">
+                                    <label for="account-setup-company-name" class="control-label">Company Name</label>
+                                    <input name="account-setup-company-name" type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength" id="account-setup-company-name" placeholder="Company Name" ng-model="model.companyName" required="" required-message="validationMessages.required" invalid-message="validationMessages.invalidemail" maxlength="100">
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-sm-5 col-sm-offset-1">
+                                <div class="form-group required">
+                                    <label for="account-setup-company-regno-select" class="control-label">Company Registration Number</label>
+                                    <div class="one-input-select">
+                                        <div class="col-md-5 col-sm-5 xstxt-marbtm paddnone">
+                                            <select id="account-setup-company-regno-select" name="account-setup-company-regno-select" class="form-control ng-pristine ng-untouched ng-valid ng-valid-required" ng-model="model.companyRegType" required-message="validationMessages.required" required="" ng-options="regType for regType in compRegTypes"><option value="0" selected="selected">UEN</option><option value="1">GSTN</option></select>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-sm-offset-1 paddnone">
+                                            <input type="text" name="product-create-retailPrice" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength ng-invalid-angular-validator" id="account-setup-company-regno" placeholder="Reg No" ng-model="model.companyRegNumber" validator="isRegEmailMatched(model.companyRegNumber,model.email)" invalid-message="regErrorMessage" required="" required-message="validationMessages.required" maxlength="20">
+                                            <!-- invalid-message="validationMessages.required" -->
+                                        </div>
+                                    </div>
+                                    <em class="text-muted text-descrip-close text-grey">You need to be a registered company in Singapore and provide a valid UEN / GSTN</em>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5 col-sm-5">
+                                <div class="form-group required">
+                                    <label for="account-setup-first-name" class="control-label">First Name</label>
+                                    <input name="account-setup-first-name" type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength" id="account-setup-first-name" placeholder="First Name" ng-model="model.merFirstName" required="" required-message="validationMessages.required" maxlength="60">
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-sm-5 col-sm-offset-1">
+                                <div class="form-group required">
+                                    <label for="account-setup-last-name" class="control-label">Last Name</label>
+                                    <input name="account-setup-last-name" type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength" id="account-setup-last-name" placeholder="Last Name" ng-model="model.merLastName" required="" required-message="validationMessages.required" maxlength="60">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5 col-sm-5">
+                                <div class="form-group required marbtm0">
+                                    <label for="account-setup-security-question" class="control-label">Security Question</label>
+                                    <input name="account-setup-security-question" type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength" id="account-setup-security-question" placeholder="Security Question" ng-model="model.securityQuestion" required="" required-message="validationMessages.required" maxlength="300">
+                                </div>
+                            </div>
+                             <div class="col-md-5 col-sm-5  col-sm-offset-1">
+                                <div class="form-group required marbtm0">
+                                    <label for="account-setup-security-answer" class="control-label">Security Answer</label>
+                                    <input name="account-setup-security-answer" type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength" id="account-setup-security-answer" placeholder="Security Answer" ng-model="model.securityAnswer" required="" required-message="validationMessages.required" maxlength="60">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row col-md-12">
+                           <em class="text-muted text-descrip-close text-grey">Please choose a security question and an answer that is simple to remember yet difficult to be guessed by others.</em>
+                        </div>
+                  
+
+                        
+
+
+                    </div>
+
+                    <div class="row">
+                        <h3>Contact Details</h3>
+                        <em class="text-muted textmutepadd"> Give us your contact details below. Our Merchant Support Team might use the information you enter to contact you.</em>
+                        <div class="row">
+                            <div class="col-md-5 col-sm-5">
+                                <div class="form-group required">
+                                    <label for="account-setup-dialCode" class="control-label">Contact Number</label>
+                                    <div class="one-input-select">
+                                        <div class="col-md-5 col-sm-5 xstxt-marbtm paddnone">
+                                            <select id="account-setup-dialCode" name="account-setup-dialCode" class="form-control ng-pristine ng-untouched ng-valid">
+                                                <option  value="+65" class="ng-binding ng-scope" selected="selected"> ( +65 ) Singapore</option><!-- end ngRepeat: item in countryList --><option  value="+1" class="ng-binding ng-scope"> ( +1 ) United States</option><!-- end ngRepeat: item in countryList --><option  value="+93" class="ng-binding ng-scope"> ( +93 ) Afghanistan</option><!-- end ngRepeat: item in countryList --><option  value="+355" class="ng-binding ng-scope"> ( +355 ) Albania</option><!-- end ngRepeat: item in countryList --><option  value="+213" class="ng-binding ng-scope"> ( +213 ) Algeria</option><!-- end ngRepeat: item in countryList --><option  value="+1 684" class="ng-binding ng-scope"> ( +1 684 ) American Samoa</option><!-- end ngRepeat: item in countryList --><option  value="+376" class="ng-binding ng-scope"> ( +376 ) Andorra</option><!-- end ngRepeat: item in countryList --><option  value="+244" class="ng-binding ng-scope"> ( +244 ) Angola</option><!-- end ngRepeat: item in countryList --><option  value="+1 264" class="ng-binding ng-scope"> ( +1 264 ) Anguilla</option><!-- end ngRepeat: item in countryList --><option  value="+672" class="ng-binding ng-scope"> ( +672 ) Antarctica</option><!-- end ngRepeat: item in countryList --><option  value="+1 268" class="ng-binding ng-scope"> ( +1 268 ) Antigua and Barbuda</option><!-- end ngRepeat: item in countryList --><option  value="+54" class="ng-binding ng-scope"> ( +54 ) Argentina</option><!-- end ngRepeat: item in countryList --><option  value="+374" class="ng-binding ng-scope"> ( +374 ) Armenia</option><!-- end ngRepeat: item in countryList --><option  value="+297" class="ng-binding ng-scope"> ( +297 ) Aruba</option><!-- end ngRepeat: item in countryList --><option  value="+61" class="ng-binding ng-scope"> ( +61 ) Australia</option><!-- end ngRepeat: item in countryList --><option  value="+43" class="ng-binding ng-scope"> ( +43 ) Austria</option><!-- end ngRepeat: item in countryList --><option  value="+994" class="ng-binding ng-scope"> ( +994 ) Azerbaijan</option><!-- end ngRepeat: item in countryList --><option  value="+1 242" class="ng-binding ng-scope"> ( +1 242 ) Bahamas</option><!-- end ngRepeat: item in countryList --><option  value="+973" class="ng-binding ng-scope"> ( +973 ) Bahrain</option><!-- end ngRepeat: item in countryList --><option  value="+880" class="ng-binding ng-scope"> ( +880 ) Bangladesh</option><!-- end ngRepeat: item in countryList --><option  value="+1 246" class="ng-binding ng-scope"> ( +1 246 ) Barbados</option><!-- end ngRepeat: item in countryList --><option  value="+375" class="ng-binding ng-scope"> ( +375 ) Belarus</option><!-- end ngRepeat: item in countryList --><option  value="+32" class="ng-binding ng-scope"> ( +32 ) Belgium</option><!-- end ngRepeat: item in countryList --><option  value="+501" class="ng-binding ng-scope"> ( +501 ) Belize</option><!-- end ngRepeat: item in countryList --><option  value="+229" class="ng-binding ng-scope"> ( +229 ) Benin</option><!-- end ngRepeat: item in countryList --><option  value="+1 441" class="ng-binding ng-scope"> ( +1 441 ) Bermuda</option><!-- end ngRepeat: item in countryList --><option  value="+975" class="ng-binding ng-scope"> ( +975 ) Bhutan</option><!-- end ngRepeat: item in countryList --><option  value="+591" class="ng-binding ng-scope"> ( +591 ) Bolivia</option><!-- end ngRepeat: item in countryList --><option  value="+387" class="ng-binding ng-scope"> ( +387 ) Bosnia and Herzegovina</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+267" class="ng-binding ng-scope"> ( +267 ) Botswana</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+55" class="ng-binding ng-scope"> ( +55 ) Brazil</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+1 284" class="ng-binding ng-scope"> ( +1 284 ) British Virgin Islands</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+673" class="ng-binding ng-scope"> ( +673 ) Brunei</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+359" class="ng-binding ng-scope"> ( +359 ) Bulgaria</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+226" class="ng-binding ng-scope"> ( +226 ) Burkina Faso</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+95" class="ng-binding ng-scope"> ( +95 ) Burma (Myanmar)</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+257" class="ng-binding ng-scope"> ( +257 ) Burundi</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+855" class="ng-binding ng-scope"> ( +855 ) Cambodia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+237" class="ng-binding ng-scope"> ( +237 ) Cameroon</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+1" class="ng-binding ng-scope"> ( +1 ) Canada</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+238" class="ng-binding ng-scope"> ( +238 ) Cape Verde</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+1 345" class="ng-binding ng-scope"> ( +1 345 ) Cayman Islands</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+236" class="ng-binding ng-scope"> ( +236 ) Central African Republic</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+235" class="ng-binding ng-scope"> ( +235 ) Chad</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+56" class="ng-binding ng-scope"> ( +56 ) Chile</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+86" class="ng-binding ng-scope"> ( +86 ) China</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+61" class="ng-binding ng-scope"> ( +61 ) Christmas Island</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+61" class="ng-binding ng-scope"> ( +61 ) Cocos (Keeling) Islands</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+57" class="ng-binding ng-scope"> ( +57 ) Colombia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+269" class="ng-binding ng-scope"> ( +269 ) Comoros</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+682" class="ng-binding ng-scope"> ( +682 ) Cook Islands</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+506" class="ng-binding ng-scope"> ( +506 ) Costa Rica</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+385" class="ng-binding ng-scope"> ( +385 ) Croatia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+53" class="ng-binding ng-scope"> ( +53 ) Cuba</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+357" class="ng-binding ng-scope"> ( +357 ) Cyprus</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+420" class="ng-binding ng-scope"> ( +420 ) Czech Republic</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+243" class="ng-binding ng-scope"> ( +243 ) Democratic Republic of the Congo</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+45" class="ng-binding ng-scope"> ( +45 ) Denmark</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+253" class="ng-binding ng-scope"> ( +253 ) Djibouti</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+1 767" class="ng-binding ng-scope"> ( +1 767 ) Dominica</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+1 809" class="ng-binding ng-scope"> ( +1 809 ) Dominican Republic</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+593" class="ng-binding ng-scope"> ( +593 ) Ecuador</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+20" class="ng-binding ng-scope"> ( +20 ) Egypt</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+503" class="ng-binding ng-scope"> ( +503 ) El Salvador</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+240" class="ng-binding ng-scope"> ( +240 ) Equatorial Guinea</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+291" class="ng-binding ng-scope"> ( +291 ) Eritrea</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+372" class="ng-binding ng-scope"> ( +372 ) Estonia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+251" class="ng-binding ng-scope"> ( +251 ) Ethiopia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+500" class="ng-binding ng-scope"> ( +500 ) Falkland Islands</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+298" class="ng-binding ng-scope"> ( +298 ) Faroe Islands</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+679" class="ng-binding ng-scope"> ( +679 ) Fiji</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+358" class="ng-binding ng-scope"> ( +358 ) Finland</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+33" class="ng-binding ng-scope"> ( +33 ) France</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+689" class="ng-binding ng-scope"> ( +689 ) French Polynesia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+241" class="ng-binding ng-scope"> ( +241 ) Gabon</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+220" class="ng-binding ng-scope"> ( +220 ) Gambia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+995" class="ng-binding ng-scope"> ( +995 ) Georgia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+49" class="ng-binding ng-scope"> ( +49 ) Germany</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+233" class="ng-binding ng-scope"> ( +233 ) Ghana</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+350" class="ng-binding ng-scope"> ( +350 ) Gibraltar</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+30" class="ng-binding ng-scope"> ( +30 ) Greece</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+299" class="ng-binding ng-scope"> ( +299 ) Greenland</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+1 473" class="ng-binding ng-scope"> ( +1 473 ) Grenada</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+1 671" class="ng-binding ng-scope"> ( +1 671 ) Guam</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+502" class="ng-binding ng-scope"> ( +502 ) Guatemala</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+224" class="ng-binding ng-scope"> ( +224 ) Guinea</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+245" class="ng-binding ng-scope"> ( +245 ) Guinea-Bissau</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+592" class="ng-binding ng-scope"> ( +592 ) Guyana</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+509" class="ng-binding ng-scope"> ( +509 ) Haiti</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+39" class="ng-binding ng-scope"> ( +39 ) Holy See (Vatican City)</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+504" class="ng-binding ng-scope"> ( +504 ) Honduras</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+852" class="ng-binding ng-scope"> ( +852 ) Hong Kong</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+36" class="ng-binding ng-scope"> ( +36 ) Hungary</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+354" class="ng-binding ng-scope"> ( +354 ) Iceland</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+91" class="ng-binding ng-scope"> ( +91 ) India</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+62" class="ng-binding ng-scope"> ( +62 ) Indonesia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+98" class="ng-binding ng-scope"> ( +98 ) Iran</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+964" class="ng-binding ng-scope"> ( +964 ) Iraq</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+353" class="ng-binding ng-scope"> ( +353 ) Ireland</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+44" class="ng-binding ng-scope"> ( +44 ) Isle of Man</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+972" class="ng-binding ng-scope"> ( +972 ) Israel</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+39" class="ng-binding ng-scope"> ( +39 ) Italy</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+225" class="ng-binding ng-scope"> ( +225 ) Ivory Coast</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+1 876" class="ng-binding ng-scope"> ( +1 876 ) Jamaica</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+81" class="ng-binding ng-scope"> ( +81 ) Japan</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+962" class="ng-binding ng-scope"> ( +962 ) Jordan</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+7" class="ng-binding ng-scope"> ( +7 ) Kazakhstan</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+254" class="ng-binding ng-scope"> ( +254 ) Kenya</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+686" class="ng-binding ng-scope"> ( +686 ) Kiribati</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+965" class="ng-binding ng-scope"> ( +965 ) Kuwait</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+996" class="ng-binding ng-scope"> ( +996 ) Kyrgyzstan</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+856" class="ng-binding ng-scope"> ( +856 ) Laos</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+371" class="ng-binding ng-scope"> ( +371 ) Latvia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+961" class="ng-binding ng-scope"> ( +961 ) Lebanon</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+266" class="ng-binding ng-scope"> ( +266 ) Lesotho</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+231" class="ng-binding ng-scope"> ( +231 ) Liberia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+218" class="ng-binding ng-scope"> ( +218 ) Libya</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+423" class="ng-binding ng-scope"> ( +423 ) Liechtenstein</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+370" class="ng-binding ng-scope"> ( +370 ) Lithuania</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+352" class="ng-binding ng-scope"> ( +352 ) Luxembourg</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+853" class="ng-binding ng-scope"> ( +853 ) Macau</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+389" class="ng-binding ng-scope"> ( +389 ) Macedonia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+261" class="ng-binding ng-scope"> ( +261 ) Madagascar</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+265" class="ng-binding ng-scope"> ( +265 ) Malawi</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+60" class="ng-binding ng-scope"> ( +60 ) Malaysia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+960" class="ng-binding ng-scope"> ( +960 ) Maldives</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+223" class="ng-binding ng-scope"> ( +223 ) Mali</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+356" class="ng-binding ng-scope"> ( +356 ) Malta</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+692" class="ng-binding ng-scope"> ( +692 ) Marshall Islands</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+222" class="ng-binding ng-scope"> ( +222 ) Mauritania</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+230" class="ng-binding ng-scope"> ( +230 ) Mauritius</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+262" class="ng-binding ng-scope"> ( +262 ) Mayotte</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+52" class="ng-binding ng-scope"> ( +52 ) Mexico</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+691" class="ng-binding ng-scope"> ( +691 ) Micronesia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+373" class="ng-binding ng-scope"> ( +373 ) Moldova</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+377" class="ng-binding ng-scope"> ( +377 ) Monaco</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+976" class="ng-binding ng-scope"> ( +976 ) Mongolia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+382" class="ng-binding ng-scope"> ( +382 ) Montenegro</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+1 664" class="ng-binding ng-scope"> ( +1 664 ) Montserrat</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+212" class="ng-binding ng-scope"> ( +212 ) Morocco</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+258" class="ng-binding ng-scope"> ( +258 ) Mozambique</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+264" class="ng-binding ng-scope"> ( +264 ) Namibia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+674" class="ng-binding ng-scope"> ( +674 ) Nauru</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+977" class="ng-binding ng-scope"> ( +977 ) Nepal</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+31" class="ng-binding ng-scope"> ( +31 ) Netherlands</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+599" class="ng-binding ng-scope"> ( +599 ) Netherlands Antilles</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+687" class="ng-binding ng-scope"> ( +687 ) New Caledonia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+64" class="ng-binding ng-scope"> ( +64 ) New Zealand</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+505" class="ng-binding ng-scope"> ( +505 ) Nicaragua</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+227" class="ng-binding ng-scope"> ( +227 ) Niger</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+234" class="ng-binding ng-scope"> ( +234 ) Nigeria</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+683" class="ng-binding ng-scope"> ( +683 ) Niue</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+850" class="ng-binding ng-scope"> ( +850 ) North Korea</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+1 670" class="ng-binding ng-scope"> ( +1 670 ) Northern Mariana Islands</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+47" class="ng-binding ng-scope"> ( +47 ) Norway</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+968" class="ng-binding ng-scope"> ( +968 ) Oman</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+92" class="ng-binding ng-scope"> ( +92 ) Pakistan</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+680" class="ng-binding ng-scope"> ( +680 ) Palau</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+507" class="ng-binding ng-scope"> ( +507 ) Panama</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+675" class="ng-binding ng-scope"> ( +675 ) Papua New Guinea</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+595" class="ng-binding ng-scope"> ( +595 ) Paraguay</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+51" class="ng-binding ng-scope"> ( +51 ) Peru</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+63" class="ng-binding ng-scope"> ( +63 ) Philippines</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+870" class="ng-binding ng-scope"> ( +870 ) Pitcairn Islands</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+48" class="ng-binding ng-scope"> ( +48 ) Poland</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+351" class="ng-binding ng-scope"> ( +351 ) Portugal</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+1" class="ng-binding ng-scope"> ( +1 ) Puerto Rico</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+974" class="ng-binding ng-scope"> ( +974 ) Qatar</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+242" class="ng-binding ng-scope"> ( +242 ) Republic of the Congo</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+40" class="ng-binding ng-scope"> ( +40 ) Romania</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+7" class="ng-binding ng-scope"> ( +7 ) Russia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+250" class="ng-binding ng-scope"> ( +250 ) Rwanda</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+590" class="ng-binding ng-scope"> ( +590 ) Saint Barthelemy</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+290" class="ng-binding ng-scope"> ( +290 ) Saint Helena</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+1 869" class="ng-binding ng-scope"> ( +1 869 ) Saint Kitts and Nevis</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+1 758" class="ng-binding ng-scope"> ( +1 758 ) Saint Lucia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+1 599" class="ng-binding ng-scope"> ( +1 599 ) Saint Martin</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+508" class="ng-binding ng-scope"> ( +508 ) Saint Pierre and Miquelon</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+1 784" class="ng-binding ng-scope"> ( +1 784 ) Saint Vincent and the Grenadines</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+685" class="ng-binding ng-scope"> ( +685 ) Samoa</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+378" class="ng-binding ng-scope"> ( +378 ) San Marino</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+239" class="ng-binding ng-scope"> ( +239 ) Sao Tome and Principe</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+966" class="ng-binding ng-scope"> ( +966 ) Saudi Arabia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+221" class="ng-binding ng-scope"> ( +221 ) Senegal</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+381" class="ng-binding ng-scope"> ( +381 ) Serbia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+248" class="ng-binding ng-scope"> ( +248 ) Seychelles</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+232" class="ng-binding ng-scope"> ( +232 ) Sierra Leone</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+421" class="ng-binding ng-scope"> ( +421 ) Slovakia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+386" class="ng-binding ng-scope"> ( +386 ) Slovenia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+677" class="ng-binding ng-scope"> ( +677 ) Solomon Islands</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+252" class="ng-binding ng-scope"> ( +252 ) Somalia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+27" class="ng-binding ng-scope"> ( +27 ) South Africa</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+82" class="ng-binding ng-scope"> ( +82 ) South Korea</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+34" class="ng-binding ng-scope"> ( +34 ) Spain</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+94" class="ng-binding ng-scope"> ( +94 ) Sri Lanka</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+249" class="ng-binding ng-scope"> ( +249 ) Sudan</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+597" class="ng-binding ng-scope"> ( +597 ) Suriname</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+268" class="ng-binding ng-scope"> ( +268 ) Swaziland</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+46" class="ng-binding ng-scope"> ( +46 ) Sweden</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+41" class="ng-binding ng-scope"> ( +41 ) Switzerland</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+963" class="ng-binding ng-scope"> ( +963 ) Syria</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+886" class="ng-binding ng-scope"> ( +886 ) Taiwan</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+992" class="ng-binding ng-scope"> ( +992 ) Tajikistan</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+255" class="ng-binding ng-scope"> ( +255 ) Tanzania</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+66" class="ng-binding ng-scope"> ( +66 ) Thailand</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+670" class="ng-binding ng-scope"> ( +670 ) Timor-Leste</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+228" class="ng-binding ng-scope"> ( +228 ) Togo</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+690" class="ng-binding ng-scope"> ( +690 ) Tokelau</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+676" class="ng-binding ng-scope"> ( +676 ) Tonga</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+1 868" class="ng-binding ng-scope"> ( +1 868 ) Trinidad and Tobago</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+216" class="ng-binding ng-scope"> ( +216 ) Tunisia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+90" class="ng-binding ng-scope"> ( +90 ) Turkey</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+993" class="ng-binding ng-scope"> ( +993 ) Turkmenistan</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+1 649" class="ng-binding ng-scope"> ( +1 649 ) Turks and Caicos Islands</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+688" class="ng-binding ng-scope"> ( +688 ) Tuvalu</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+256" class="ng-binding ng-scope"> ( +256 ) Uganda</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+380" class="ng-binding ng-scope"> ( +380 ) Ukraine</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+971" class="ng-binding ng-scope"> ( +971 ) United Arab Emirates</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+44" class="ng-binding ng-scope"> ( +44 ) United Kingdom</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+598" class="ng-binding ng-scope"> ( +598 ) Uruguay</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+1 340" class="ng-binding ng-scope"> ( +1 340 ) US Virgin Islands</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+998" class="ng-binding ng-scope"> ( +998 ) Uzbekistan</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+678" class="ng-binding ng-scope"> ( +678 ) Vanuatu</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+58" class="ng-binding ng-scope"> ( +58 ) Venezuela</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+84" class="ng-binding ng-scope"> ( +84 ) Vietnam</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+681" class="ng-binding ng-scope"> ( +681 ) Wallis and Futuna</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+967" class="ng-binding ng-scope"> ( +967 ) Yemen</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+260" class="ng-binding ng-scope"> ( +260 ) Zambia</option><!-- end ngRepeat: item in countryList --><option ng-repeat="item in countryList" value="+263" class="ng-binding ng-scope"> ( +263 ) Zimbabwe</option><!-- end ngRepeat: item in countryList -->
+                                            </select>
+                                            <em class="text-muted text-descrip-close text-grey">Country code</em>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-sm-offset-1 paddnone">
+                                                   <!--<input name="account-setup-phone" type="tel" class="form-control" id="account-setup-phone" placeholder="Phone" ng-model="model.contactPhone"
+                                                    required required-message="validationMessages.required" ng-pattern="/^[0-9]+[\\.]?[0-9]{0,2}$/" invalid-message="validationMessages.invalidphone" maxlength="60"/>-->
+                                            <input name="account-setup-phone" type="tel" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength" id="account-setup-phone" placeholder="Phone" ng-model="model.contactPhone" required="" required-message="validationMessages.required" maxlength="60">
+                                            <em class="text-muted text-descrip-close text-grey">Number without country code</em>
+                                            <!-- invalid-message="validationMessages.required" -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-sm-5 col-sm-offset-1">
+                                <div class="form-group required">
+                                    <label for="account-setup-country" class="control-label">Country</label>
+                                    <select class="form-control ng-pristine ng-untouched ng-valid ng-valid-required" name="account-setup-country" ng-model="model.countryCode" id="account-setup-country" required="" required-message="validationMessages.required"><option value="" class="">Select</option><option value="0" selected="selected">Singapore</option><option value="1">United States</option><option value="2">Afghanistan</option><option value="3">Albania</option><option value="4">Algeria</option><option value="5">American Samoa</option><option value="6">Andorra</option><option value="7">Angola</option><option value="8">Anguilla</option><option value="9">Antarctica</option><option value="10">Antigua and Barbuda</option><option value="11">Argentina</option><option value="12">Armenia</option><option value="13">Aruba</option><option value="14">Australia</option><option value="15">Austria</option><option value="16">Azerbaijan</option><option value="17">Bahamas</option><option value="18">Bahrain</option><option value="19">Bangladesh</option><option value="20">Barbados</option><option value="21">Belarus</option><option value="22">Belgium</option><option value="23">Belize</option><option value="24">Benin</option><option value="25">Bermuda</option><option value="26">Bhutan</option><option value="27">Bolivia</option><option value="28">Bosnia and Herzegovina</option><option value="29">Botswana</option><option value="30">Brazil</option><option value="31">British Virgin Islands</option><option value="32">Brunei</option><option value="33">Bulgaria</option><option value="34">Burkina Faso</option><option value="35">Burma (Myanmar)</option><option value="36">Burundi</option><option value="37">Cambodia</option><option value="38">Cameroon</option><option value="39">Canada</option><option value="40">Cape Verde</option><option value="41">Cayman Islands</option><option value="42">Central African Republic</option><option value="43">Chad</option><option value="44">Chile</option><option value="45">China</option><option value="46">Christmas Island</option><option value="47">Cocos (Keeling) Islands</option><option value="48">Colombia</option><option value="49">Comoros</option><option value="50">Cook Islands</option><option value="51">Costa Rica</option><option value="52">Croatia</option><option value="53">Cuba</option><option value="54">Cyprus</option><option value="55">Czech Republic</option><option value="56">Democratic Republic of the Congo</option><option value="57">Denmark</option><option value="58">Djibouti</option><option value="59">Dominica</option><option value="60">Dominican Republic</option><option value="61">Ecuador</option><option value="62">Egypt</option><option value="63">El Salvador</option><option value="64">Equatorial Guinea</option><option value="65">Eritrea</option><option value="66">Estonia</option><option value="67">Ethiopia</option><option value="68">Falkland Islands</option><option value="69">Faroe Islands</option><option value="70">Fiji</option><option value="71">Finland</option><option value="72">France</option><option value="73">French Polynesia</option><option value="74">Gabon</option><option value="75">Gambia</option><option value="76">Georgia</option><option value="77">Germany</option><option value="78">Ghana</option><option value="79">Gibraltar</option><option value="80">Greece</option><option value="81">Greenland</option><option value="82">Grenada</option><option value="83">Guam</option><option value="84">Guatemala</option><option value="85">Guinea</option><option value="86">Guinea-Bissau</option><option value="87">Guyana</option><option value="88">Haiti</option><option value="89">Holy See (Vatican City)</option><option value="90">Honduras</option><option value="91">Hong Kong</option><option value="92">Hungary</option><option value="93">Iceland</option><option value="94">India</option><option value="95">Indonesia</option><option value="96">Iran</option><option value="97">Iraq</option><option value="98">Ireland</option><option value="99">Isle of Man</option><option value="100">Israel</option><option value="101">Italy</option><option value="102">Ivory Coast</option><option value="103">Jamaica</option><option value="104">Japan</option><option value="105">Jordan</option><option value="106">Kazakhstan</option><option value="107">Kenya</option><option value="108">Kiribati</option><option value="109">Kuwait</option><option value="110">Kyrgyzstan</option><option value="111">Laos</option><option value="112">Latvia</option><option value="113">Lebanon</option><option value="114">Lesotho</option><option value="115">Liberia</option><option value="116">Libya</option><option value="117">Liechtenstein</option><option value="118">Lithuania</option><option value="119">Luxembourg</option><option value="120">Macau</option><option value="121">Macedonia</option><option value="122">Madagascar</option><option value="123">Malawi</option><option value="124">Malaysia</option><option value="125">Maldives</option><option value="126">Mali</option><option value="127">Malta</option><option value="128">Marshall Islands</option><option value="129">Mauritania</option><option value="130">Mauritius</option><option value="131">Mayotte</option><option value="132">Mexico</option><option value="133">Micronesia</option><option value="134">Moldova</option><option value="135">Monaco</option><option value="136">Mongolia</option><option value="137">Montenegro</option><option value="138">Montserrat</option><option value="139">Morocco</option><option value="140">Mozambique</option><option value="141">Namibia</option><option value="142">Nauru</option><option value="143">Nepal</option><option value="144">Netherlands</option><option value="145">Netherlands Antilles</option><option value="146">New Caledonia</option><option value="147">New Zealand</option><option value="148">Nicaragua</option><option value="149">Niger</option><option value="150">Nigeria</option><option value="151">Niue</option><option value="152">North Korea</option><option value="153">Northern Mariana Islands</option><option value="154">Norway</option><option value="155">Oman</option><option value="156">Pakistan</option><option value="157">Palau</option><option value="158">Panama</option><option value="159">Papua New Guinea</option><option value="160">Paraguay</option><option value="161">Peru</option><option value="162">Philippines</option><option value="163">Pitcairn Islands</option><option value="164">Poland</option><option value="165">Portugal</option><option value="166">Puerto Rico</option><option value="167">Qatar</option><option value="168">Republic of the Congo</option><option value="169">Romania</option><option value="170">Russia</option><option value="171">Rwanda</option><option value="172">Saint Barthelemy</option><option value="173">Saint Helena</option><option value="174">Saint Kitts and Nevis</option><option value="175">Saint Lucia</option><option value="176">Saint Martin</option><option value="177">Saint Pierre and Miquelon</option><option value="178">Saint Vincent and the Grenadines</option><option value="179">Samoa</option><option value="180">San Marino</option><option value="181">Sao Tome and Principe</option><option value="182">Saudi Arabia</option><option value="183">Senegal</option><option value="184">Serbia</option><option value="185">Seychelles</option><option value="186">Sierra Leone</option><option value="187">Slovakia</option><option value="188">Slovenia</option><option value="189">Solomon Islands</option><option value="190">Somalia</option><option value="191">South Africa</option><option value="192">South Korea</option><option value="193">Spain</option><option value="194">Sri Lanka</option><option value="195">Sudan</option><option value="196">Suriname</option><option value="197">Swaziland</option><option value="198">Sweden</option><option value="199">Switzerland</option><option value="200">Syria</option><option value="201">Taiwan</option><option value="202">Tajikistan</option><option value="203">Tanzania</option><option value="204">Thailand</option><option value="205">Timor-Leste</option><option value="206">Togo</option><option value="207">Tokelau</option><option value="208">Tonga</option><option value="209">Trinidad and Tobago</option><option value="210">Tunisia</option><option value="211">Turkey</option><option value="212">Turkmenistan</option><option value="213">Turks and Caicos Islands</option><option value="214">Tuvalu</option><option value="215">Uganda</option><option value="216">Ukraine</option><option value="217">United Arab Emirates</option><option value="218">United Kingdom</option><option value="219">Uruguay</option><option value="220">US Virgin Islands</option><option value="221">Uzbekistan</option><option value="222">Vanuatu</option><option value="223">Venezuela</option><option value="224">Vietnam</option><option value="225">Wallis and Futuna</option><option value="226">Yemen</option><option value="227">Zambia</option><option value="228">Zimbabwe</option></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5 col-sm-5">
+                                <div class="form-group required">
+                                    <label for="account-setup-addressLine1" class="control-label">Address Line 1</label>
+                                    <input name="account-setup-addressLine1" type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength" id="account-setup-addressLine1" placeholder="Address Line 1" ng-model="model.addressLine1" required="" required-message="validationMessages.required" maxlength="60">
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-sm-5 col-sm-offset-1">
+                                <div class="form-group">
+                                    <label for="account-setup-addressLine2" class="control-label">Address Line 2</label>
+                                    <input name="account-setup-addressLine2" type="text" class="form-control ng-pristine ng-untouched ng-valid ng-valid-maxlength" id="account-setup-addressLine2" placeholder="Address Line 2" ng-model="model.addressLine2" maxlength="60">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5 col-sm-5">
+                                <div class="form-group required">
+                                    <label for="account-setup-city" class="control-label">City</label>
+                                    <input name="account-setup-city" type="text" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength" id="account-setup-city" placeholder="City" ng-model="model.city" required="" required-message="validationMessages.required" maxlength="60">
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-sm-5 col-sm-offset-1">
+                                <div class="form-group">
+                                    <label for="account-setup-province" class="control-label">State/Region</label>
+                                    <input name="account-setup-province" type="text" class="form-control ng-pristine ng-untouched ng-valid ng-valid-maxlength" id="account-setup-province" placeholder="Province/Region" ng-model="model.state" maxlength="60">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5 col-sm-5">
+                                <div class="form-group required">
+                                    <label for="account-setup-zipcode" class="control-label">ZIP / Postal Code</label>
+                                    <input type="text" name="account-setup-zipcode" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength" id="account-setup-zipcode" placeholder="ZIP/Postal Code" ng-model="model.zipCode" required="" required-message="validationMessages.required" maxlength="60">
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-sm-5 col-sm-offset-1">
+                                <div class="form-group">
+                                    <label for="account-setup-landline" class="control-label">Alternate Contact Number</label>
+                                    <!--<input name="account-setup-landline" type="tel" class="form-control" id="account-setup-landline" placeholder="Phone" ng-model="model.landline" invalid-message="validationMessages.invalidphone" ng-pattern="/^[0-9\-\+ ]*$/" maxlength="60"/>-->
+                                    <input name="account-setup-landline" type="tel" class="form-control ng-pristine ng-untouched ng-valid ng-valid-maxlength" id="account-setup-landline" placeholder="Phone" ng-model="model.landline" maxlength="60">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-grp pull-right">
+                    <button id="nxtbtn-step1" type="submit" class="btn btn-primary marrgt69">Next</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Step 2-->
+
+    <div class="row ng-hide" ng-show="currentStep == 2">
+        <div class="col-xs-12">
+            <div class="panel-group">
+                <div class="row">
+                    <ul class="steps">
+                        <li class="select col-xs-12  col-sm-4 xstxt-marbtm"><span><img src="./ezyCommerce_files/step1-select.png"></span><span>Account Setup</span></li>
+                        <li class="select col-xs-12  col-sm-4 xstxt-marbtm signupheadpadd"><span><img src="./ezyCommerce_files/step2-select.png"></span><span>Business Information</span></li>
+                        <li class="col-xs-12  col-sm-4 xstxt-marbtm signupheadtxtRight"><span><img src="./ezyCommerce_files/step3.png"></span><span>Verify &amp; Create Account</span></li>
+                    </ul>
+                </div>
+            </div>
+            <h2>ezyCommerce-SPRING SME subsidy grant</h2>
+            
+            <form class="signuppanel ng-pristine ng-valid ng-valid-maxlength" name="signuppanel2" id="signuppanel2" novalidate="" angular-validator="" angular-validator-submit="next()">
+                <div class="panel-group">
+
+                    <div class="row">
+
+                        <!--<h3>ezyCommerce-SPRING SME subsidy grant</h3>-->
+                        <div class="row">
+                            <div class="col-sm-12 padBtm15px pad-left-none">Please provide us more information about your business to help us serve you better.  You may be eligible for the ezyCommerce-SPRING SME subsidy grant which will provide you rebates up to 70% of your monthly fulfillment charges.</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 padBtm15px pad-left-none">To apply for this grant, you should be - </div>
+                        </div>
+                        <div class="paddnone">
+                            <ol>
+                                <li>Registered company in Singapore and have at least 30% local shareholding</li>
+                                <li>Company group annual sales not more than $100mil (OR) company group employment size not more than 200 workers</li>
+                            </ol>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 padBtm15px pad-left-none">Your application will be reviewed within 3 working days and you will be informed on the outcome. SP eCommerce reserves the right to revise applicable eligibility terms, accept or refuse the grant without providing any reason.</div>
+                            <div class="col-sm-12 padBtm15px pad-left-none font-strong">If you do not meet the eligibility criteria, you can still go ahead and sign-up for ezyCommerce without the grant.</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 paddnone">
+                                <label>
+                                    <input type="checkbox" id="verify-agree" class="chkpadd applyCheckBox ng-pristine ng-untouched ng-valid" name="verify-agree" ng-model="model.applySme">
+                                    <span class="applyCheckText">I wish to apply for the ezyCommerce-SME subsidy grant and confirm that I meet the above criteria for the application.</span>
+                                </label>
+                            </div>
+                        </div>
+                        <h2>Please provide the below information for our reference</h2>
+                        <h3>Company Information</h3>
+
+                        <div class="row">
+                            <div class="col-md-5 col-sm-5 col-xs-12">
+                                <div class="form-group">
+                                    <label for="business-info-rev-pa" class="control-label pad-top7">Company Size</label>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-sm-5 col-xs-12 pull-right marrgt69">
+                                <div class="form-group">
+                                    <label for="business-info-rev-pa" class="control-label">Revenue per annum</label>
+                                    <select id="business-info-rev-pa" name="business-info-rev-pa" class="form-control ng-pristine ng-untouched ng-valid" ng-model="model.revPerAnnum" ng-options="item for item in revenueRange"><option value="" class="">Select</option><option value="0">less than SGD 500,000</option><option value="1">SGD 500,000 - 999,999</option><option value="2">SGD 1,000,000 - 1,999,999</option><option value="3">SGD 2,000,000 - 5,000,000</option><option value="4">Above SGD 5,000,000</option></select>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-5 col-sm-5 ">
+                                <div class="form-group">
+                                    <label for="business-info-permanent-emp" class="control-label">Permanent employees</label>
+                                    <!--<input name="business-info-permanent-emp" type="text" class="form-control" id="business-info-permanent-emp" ng-model="model.permanentEmp" maxlength="30" ng-pattern="/^[0-9]*$/" invalid-message="validationMessages.invalidnumber"/>-->
+                                    <input name="business-info-permanent-emp" type="text" class="form-control ng-pristine ng-untouched ng-valid ng-valid-maxlength" id="business-info-permanent-emp" ng-model="model.permanentEmp" maxlength="30">
+                                    <!-- ng-disabled="model.isExistingSPCustomer" -->
+                                </div>
+                            </div>
+
+                            <div class="col-md-5 col-sm-5 col-sm-offset-1">
+                                <div class="form-group">
+                                    <label for="business-info-yr-founded" class="control-label">Year in which company was founded</label>
+                                    <!--<input name="business-info-yr-founded" type="text" class="form-control" id="business-info-yr-founded" ng-model="model.compFoundedYear" maxlength="4"  validator="isYearFormat(model.compFoundedYear)" invalid-message="yearErrorMessage"/>-->
+                                    <input name="business-info-yr-founded" type="text" class="form-control ng-pristine ng-untouched ng-valid ng-valid-maxlength" id="business-info-yr-founded" ng-model="model.compFoundedYear" maxlength="4">
+                                    <!-- ng-disabled="model.isExistingSPCustomer" -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-5 col-sm-5">
+                                <div class="form-group">
+                                    <label for="business-info-temp-emp" class="control-label">Temporary employees</label>
+                                    <!--<input name="business-info-temp-emp" type="text" class="form-control" id="business-info-temp-emp" ng-model="model.temporaryEmp" maxlength="30" ng-pattern="/^[0-9]*$/" invalid-message="validationMessages.invalidnumber"/>-->
+                                    <input name="business-info-temp-emp" type="text" class="form-control ng-pristine ng-untouched ng-valid ng-valid-maxlength" id="business-info-temp-emp" ng-model="model.temporaryEmp" maxlength="30">
+                                    <!-- ng-disabled="model.isExistingSPCustomer" -->
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-sm-5 col-sm-offset-1">
+                                <div class="form-group">
+                                    <label for="business-info-website" class="control-label">Company website</label>
+                                    <input name="business-info-website" type="text" class="form-control ng-pristine ng-untouched ng-valid ng-valid-maxlength" id="business-info-website" ng-model="model.companyWebsite" maxlength="200">  <!-- ng-disabled="model.isExistingSPCustomer" -->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <h3>Business Information</h3>
+                        <em class="text-muted textmutepadd"> Tell us a little more about your business. This will help us to serve you better and customize special offers or packages exclusively for you.</em>
+                        <div class="row">
+                            <div class="col-md-5 col-sm-5">
+                                <div class="form-group">
+                                    <label for="business-info-orders-pm" class="control-label">Orders per month</label>
+                                    <select id="business-info-orders-pm" name="business-info-orders-pm" class="form-control ng-pristine ng-untouched ng-valid" ng-model="model.ordersPerMonth" ng-options="item for item in unitsRange"><option value="" class="">Select</option><option value="0">less than 250</option><option value="1">250-499</option><option value="2">500-1000</option><option value="3">1001-2000</option><option value="4">2001-3000</option><option value="5">Above 3000</option></select>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-sm-5 col-sm-offset-1">
+                                <div class="form-group">
+                                    <label for="business-info-avg-units" class="control-label">Average units per order</label>
+                                    <select id="business-info-avg-units" name="business-info-avg-units" class="form-control ng-pristine ng-untouched ng-valid" ng-model="model.avgUnitsPerOrder" ng-options="item for item in orderUnitsRange"><option value="" class="">Select</option><option value="0">less than 2</option><option value="1">2-3</option><option value="2">4-5</option><option value="3">6-10</option><option value="4">Above 10</option></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5 col-sm-5">
+                                <div class="form-group">
+                                    <label for="business-info-domestic-orders" class="control-label">Percentage of Domestic Orders</label>
+                                    <!--<input name="business-info-domestic-orders" type="text" class="form-control" id="business-info-domestic-orders"  ng-model="model.domesticOrdersPercentage" maxlength="3"  validator="isDomestOrderFormat(model.domesticOrdersPercentage)"  invalid-message="domesticOrdErrorMessage" />-->
+                                    <input name="business-info-domestic-orders" type="text" class="form-control ng-pristine ng-untouched ng-valid ng-valid-maxlength" id="business-info-domestic-orders" ng-model="model.domesticOrdersPercentage" maxlength="3">
+                                </div>
+                                <div class="form-group">
+                                    <label for="business-info-skus-handled" class="control-label">Number of unique Products (SKUs) sold</label>
+                                    <!--<input name="business-info-skus-handled" type="text" class="form-control" id="business-info-skus-handled" ng-model="model.noOfUniqueSkus" maxlength="5" validator="isSKUsHandledFormat(model.noOfUniqueSkus)" invalid-message="skusHandledError"/>-->
+                                    <input name="business-info-skus-handled" type="text" class="form-control ng-pristine ng-untouched ng-valid ng-valid-maxlength" id="business-info-skus-handled" ng-model="model.noOfUniqueSkus" maxlength="5">
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-sm-5 col-sm-offset-1">
+                                <div class="form-group">
+                                    <label for="business-info-prod-cat" class="control-label">Product Category</label>
+
+
+                                       <div class="popoverHldr marg-left7">
+                                               <span class="glyphicon glyphicon-info" data-container="body" data-toggle="popover" data-placement="right" data-content="You can select multiple categories by holding down the CTRL key" data-original-title="" title="">
+                                              </span>
+                                        </div>
+                                    
+                                    <select multiple="" id="business-info-prod-cat" data-toggle="tooltip" data-placement="top" title="Press CTRL key to select multiple Product Category" name="business-info-prod-cat" class="form-control ng-pristine ng-untouched ng-valid" ng-model="model.merCategory" ng-options="categoryOption.name as categoryOption.name for categoryOption in categoryOptions"><option value="0">Electronics</option><option value="1">Apparel</option><option value="2">Baby</option><option value="3">Toys</option><option value="4">Home and Life Style</option><option value="5">Kitchen</option><option value="6">Sports</option><option value="7">Fashion</option><option value="8">Shoes</option><option value="9">Footwear</option><option value="10">Beauty and health</option><option value="11">Travel</option><option value="12">Accessories</option><option value="13">Others</option></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                         <div class="col-md-5 col-sm-5">
+                                <div class="form-group">
+                                    <label for="business-info-avg-units" class="control-label">URL of Website where you are currently selling</label>
+                                    <!--<input name="business-info-sales-channel-link" type="text" class="form-control" id="business-info-sales-channel-link"  ng-model="model.salesChannelLink" 
+
+                                    validator="checkSalesChannelMaxLimit(model.salesChannelLink)" invalid-message="checkSalesChannelMaxLimitErrorMessage" 
+
+
+                                    />-->
+                                    <input name="business-info-sales-channel-link" type="text" class="form-control ng-pristine ng-untouched ng-valid ng-valid-maxlength" id="business-info-sales-channel-link" ng-model="model.salesChannelLink" maxlength="100">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-5 col-sm-5">
+                                <div class="form-group">
+                                    <label for="business-info-orders-pm" class="control-label">Number of overseas countries currently selling</label>
+                                    <!--<input name="business-info-oversees-channel" type="text" class="form-control" id="business-info-oversees-channel"  ng-model="model.noOfOverseasSelling" maxlength="3"  validator="isOverseasCountriesFormat(model.noOfOverseasSelling)"  invalid-message="overseasCountriesErrorMessage" />-->
+                                    <input name="business-info-oversees-channel" type="text" class="form-control ng-pristine ng-untouched ng-valid ng-valid-maxlength" id="business-info-oversees-channel" ng-model="model.noOfOverseasSelling" maxlength="100">
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-sm-5 col-sm-offset-1">
+                                <div class="form-group">
+                                    <label for="business-info-avg-units" class="control-label">Number of online channels currently selling in</label>
+                                    <input name="business-info-channels-currently-selling" type="text" class="form-control ng-pristine ng-untouched ng-valid ng-valid-maxlength" id="business-info-channels-currently-selling" ng-model="model.noOfOnlineChannels" maxlength="100">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="row paddtop20">
+                                <div class="row paddtop20">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5 col-sm-5 paddtop5">
+                                            <input type="checkbox" id="business-info-singpost-customer" class="chkpadd xstxt-padd0 businessCheckBox ng-pristine ng-untouched ng-valid" name="business-info-singpost-customer" ng-model="model.isExistingCustomer">
+                                            <span class="businessCheckText"> Are you an existing Singpost Corporate customer?</span>
+                                        </label>
+                                        <div class="col-md-5 col-sm-5 col-sm-offset-1">
+                                            <input name="business-info-corporate-account-no" type="text" class="form-control ng-pristine ng-untouched ng-valid ng-valid-maxlength" id="business-info-corporate-account-no" ng-model="model.corpAccountNumber" ng-disabled="!model.isExistingCustomer" placeholder="Corporate Account Number" maxlength="60" disabled="disabled">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="btn-grp pull-right">
+                            <button id="prev-pg-2" type="button" class="btn btn-primary marrgt69 btn-back" ng-click="back()">Back</button>
+                            <button id="nxtbtn-step2" type="submit" class="btn btn-primary marrgt69">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Step 3-->
+    <div class="row ng-hide" ng-show="currentStep == 3">
+        <div class="col-xs-12">
+            <div class="panel-group">
+                <div class="row">
+                    <ul class="steps">
+                        <li class="select col-xs-12  col-sm-4 xstxt-marbtm"><span><img src="./ezyCommerce_files/step1-select.png"></span><span>Account Setup</span></li>
+                        <li class="select col-xs-12  col-sm-4 xstxt-marbtm signupheadpadd"><span><img src="./ezyCommerce_files/step2-select.png"></span><span>Business Information</span></li>
+                        <li class="select col-xs-12  col-sm-4 xstxt-marbtm signupheadtxtRight"><span><img src="./ezyCommerce_files/step3-select.png"></span><span>Verify &amp; Create Account</span></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="notificationContainer container-fluid" id="removeNotificationMsgs" notification-messages=""><!-- ngRepeat: showMsg in $root.notificationMessages track by $index --></div>
+            <h2>Review your information</h2>
+            <div class="row">
+                <div class="col-sm-12 padBtm15px pad-left-none">All the information you entered in Steps 1 and 2 are shown here. Please make sure they are correct and agree to the standard T&amp;Cs before you register. Click on the Back button to modify any information. If you are all set, click Sign Up Now to complete your registration.</div>
+
+                <div class="col-sm-12 padBtm15px pad-left-none">If you have applied for an ezyCommerce-SPRING SME subsidy grant, you will be separately notified on the outcome of this application.</div>
+
+                <!--<div class="col-sm-12 padBtm15px pad-left-none font-strong">Welcome to ezyCommerce!</div>-->
+
+            </div>
+
+
+            <form class="signuppanel ng-pristine ng-valid ng-valid-maxlength">
+                <div class="panel-group singupview">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 paddnone">
+                            <div class="form-group">
+                                <label for="verify-email" class="col-sm-3 signupEmail control-label paddnone">Email</label>
+                                <div class="col-sm-8"> <span id="verify-email" class="form-control-static ng-binding" ng-bind="model.email || constants.notAvailableText">NA</span> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h3>Account Information</h3>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-company-name" class="col-sm-7 control-label paddnone">Company Name</label>
+                                    <div class="col-sm-5">
+                                        <span id="verify-company-name" class="form-control-static ng-binding" ng-bind="model.companyName || constants.notAvailableText">NA</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-first-name" class="col-sm-7 control-label paddnone">First Name</label>
+                                    <div class="col-sm-5"> <span id="verify-first-name" class="form-control-static ng-binding" ng-bind="model.merFirstName || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-regno-type" class="col-sm-7 control-label paddnone">Company Registration Number Type</label>
+                                    <div class="col-sm-5"> <span id="verify-regno-type" class="form-control-static ng-binding" ng-bind="model.companyRegType || constants.notAvailableText">UEN</span> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-last-name" class="col-sm-7 control-label paddnone">Last Name</label>
+                                    <div class="col-sm-5"> <span id="verify-last-name" class="form-control-static ng-binding" ng-bind="model.merLastName || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-regno" class="col-sm-7 control-label paddnone">Company Registration Number</label>
+                                    <div class="col-sm-5"> <span id="verify-regno" class="form-control-static ng-binding" ng-bind="model.companyRegNumber || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-security-question" class="col-sm-7 control-label paddnone">Security Question</label>
+                                    <div class="col-sm-5">
+                                        <span id="verify-security-question" class="form-control-static ng-binding" ng-bind="model.securityQuestion || constants.notAvailableText">NA</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-security-answer" class="col-sm-7 control-label paddnone">Security Answer</label>
+                                    <div class="col-sm-5"> <span id="verify-security-answer" class="form-control-static ng-binding" ng-bind="model.securityAnswer || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h3>Contact Details</h3>
+                        <div>
+                           <!-- <em class="text-muted textmutepadd"> Give us your contact details below. Our Merchant Support Team might use the information you enter to contact you.</em>-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-cont-no" class="col-sm-7 control-label paddnone">Contact Number</label>
+                                    <div class="col-sm-5"> <span id="verify-cont-no" class="form-control-static ng-binding" ng-bind="model.contactPhone || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-country" class="col-sm-7 control-label paddnone">Country</label>
+                                    <div class="col-sm-5"> <span id="verify-country" class="form-control-static ng-binding" ng-bind="parseCountryName(model.countryCode) || constants.notAvailableText">Singapore</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-addressLine1" class="col-sm-7 control-label paddnone">Address Line 1</label>
+                                    <div class="col-sm-5"> <span id="verify-addressLine1" class="form-control-static ng-binding" ng-bind="model.addressLine1 || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-addressLine2" class="col-sm-7 control-label paddnone">Address Line 2</label>
+                                    <div class="col-sm-5"> <span id="verify-addressLine2" class="form-control-static ng-binding" ng-bind="model.addressLine2 || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-state" class="col-sm-7 control-label paddnone">State</label>
+                                    <div class="col-sm-5"> <span id="verify-state" class="form-control-static ng-binding" ng-bind="model.state || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-city" class="col-sm-7 control-label paddnone">City</label>
+                                    <div class="col-sm-5"> <span id="verify-city" class="form-control-static ng-binding" ng-bind="model.city || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="account-setup-zipcode1" class="col-sm-7 control-label paddnone">ZIP / Postal Code</label>
+                                    <div class="col-sm-5"> <span id="account-setup-zipcode1" class="form-control-static ng-binding" ng-bind="model.zipCode || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-landline" class="col-sm-7 control-label paddnone">Alternate Contact Number</label>
+                                    <div class="col-sm-5"> <span id="verify-landline" class="form-control-static ng-binding" ng-bind="model.landline || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h3>Company Information</h3>
+                        <h5>Company size</h5>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-rev-pa" class="col-sm-7 control-label paddnone">Revenue per annum</label>
+                                    <div class="col-sm-5"> <span id="verify-rev-pa" class="form-control-static ng-binding" ng-bind="model.revPerAnnum || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-permanent-emp" class="col-sm-7 control-label paddnone">Permanent employees</label>
+                                    <div class="col-sm-5"> <span id="verify-permanent-emp" class="form-control-static ng-binding" ng-bind="model.permanentEmp || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-yr-founded" class="col-sm-7 control-label paddnone">Year in which company was founded</label>
+                                    <div class="col-sm-5"> <span id="verify-yr-founded" class="form-control-static ng-binding" ng-bind="model.compFoundedYear || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-temp-emp" class="col-sm-7 control-label paddnone">Temporary employees</label>
+                                    <div class="col-sm-5"> <span id="verify-temp-emp" class="form-control-static ng-binding" ng-bind="model.temporaryEmp || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-website" class="col-sm-7 control-label paddnone">Company website</label>
+                                    <div class="col-sm-5"> <span id="verify-website" class="form-control-static ng-binding" ng-bind="model.companyWebsite || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h3>Business Information</h3>
+                        <!--<em class="text-muted textmutepadd"> Tell us a little more about your business. This will help us to serve you better and customize special offers or packages exclusively for you.</em>-->
+
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-orders-pm" class="col-sm-7 control-label paddnone">Orders per month</label>
+                                    <div class="col-sm-5"> <span id="verify-orders-pm" class="form-control-static ng-binding" ng-bind="model.ordersPerMonth || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-avg-units" class="col-sm-7 control-label paddnone">Average units per order</label>
+                                    <div class="col-sm-5"> <span id="verify-avg-units" class="form-control-static ng-binding" ng-bind="model.avgUnitsPerOrder || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-percent-domestic" class="col-sm-7 control-label paddnone">Percentage of Domestic
+                                        Orders </label>
+                                    <div class="col-sm-5"> <span id="verify-percent-domestic" class="form-control-static ng-binding" ng-bind="model.domesticOrdersPercentage || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="marbtm15">
+                                    <label for="verify-prod-cat" class="col-sm-7 control-label paddnone">Product Category </label>
+                                    <div class="col-sm-5"> 
+                                    
+                                        <span data-toggle="tooltip" data-placement="top" title="" data-original-title="" ng-bind="(model.merCategory)?getSignupCategory(model.merCategory):constants.notAvailableText" class="ng-binding">NA</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-skus" class="col-sm-7 control-label paddnone">Number of unique Products (SKUs) sold</label>
+                                    <div class="col-sm-5"> <span id="verify-skus" class="form-control-static ng-binding" ng-bind="model.noOfUniqueSkus || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-online-channels" class="col-sm-7 control-label paddnone">Number of online channels currently selling in </label>
+                                    <div class="col-sm-5"> <span id="verify-online-channels" class="form-control-static ng-binding" ng-bind="model.noOfOnlineChannels || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-sales-channel" class="col-sm-7 control-label paddnone">URL of Website where you are currently selling</label>
+                                    <div class="col-sm-5"> <span id="verify-sales-channel" class="form-control-static ng-binding" ng-bind="model.salesChannelLink || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-oversees" class="col-sm-7 control-label paddnone">No. of overseas countries
+                                        currently selling </label>
+                                    <div class="col-sm-5"> <span id="verify-oversees" class="form-control-static ng-binding" ng-bind="model.noOfOverseasSelling || constants.notAvailableText">NA</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="verify-sales-channel" class="col-sm-7 control-label paddnone">ezyCommerce-SPRING SME subsidy grant</label>
+                                    <div class="col-sm-5"> <span id="verify-sales-channel" class="form-control-static ng-binding" ng-bind="model.applySme ? &#39;Yes&#39; : &#39;No&#39;">No</span> </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    
+
+
+                    <div class="row paddtop20">
+                          <div class="col-md-12 col-sm-12">
+                               <div class="form-group" >
+	                                <textarea rows="10" cols="20" id="jsoncode" style="width:100%"></textarea>
+	                            </div>  
+                            </div>
+
+                    </div>
+
+
+                    <div class="row paddtop20">
+                        <div class="col-md-6 col-sm-5 paddnone">
+                            <label>
+                                <input type="checkbox" id="verify-agree" class="chkpadd agreeCheckBox colnRemove ng-pristine ng-untouched ng-valid" name="verify-agree" ng-model="isAgreed">
+                               <span class="agreeCheckText">I have read &amp; agreed to the  <a href="http://uat.ezycommerce.com/content/ezyCommerce%20Pilot%20T&C.pdf" class="blog-nav-item" target="_blank">Terms &amp; Conditions</a></span>
+                            </label>
+
+                        </div>
+                       
+                    </div>
+
+                    <div class="row btn-grp pull-left">
+                        <button id="prev-pg-3" type="button" class="btn btn-primary marrgt69 btn-back" ng-click="back()">Back</button>
+                        <button id="sign-up-btn" ng-disabled="!isAgreed" type="submit" ng-click="signup()" class="btn btn-primary" disabled="disabled">Sign Up Now</button>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!--step 4-->
+    <div class="panel col-sm-10 col-lg-10 col-md-10 panel-padd ng-hide" ng-show="currentStep == 4">
+        <div class="panel-heading step4">
+            <h4 class="panel-title">
+                <p> <span ng-bind="model.merLastName+&#39; &#39;+model.merFirstName" class="firstCaps ng-binding"> </span>, you're almost ready to get started!</p>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body body-bgColor">
+                <div class="col-sm-12 col-xs-12 paddnone">
+                    <div class="col-sm-12 paddnone">
+                        <div class="row">
+                            <p>Thank you for signing up for an ezyCommerce account. An activation email has been sent to <a href="http://uat.ezycommerce.com/signup/#" class="linkColor ng-binding" ng-bind="model.email"></a>. Please click on the activation link to verify your email. You can login to your account as soon as your account has been approved by the administrator.</p>
+                        </div>
+
+                         <div class="row">
+                            <div class="panel bg-color lineWidth">
+                            </div>
+                        </div>
+
+                        <div class="row font1">
+                            
+                            <p>Didn't receive an email?  Please check your junk folder and add ezyCommerce domain to your safe senders list. If you still didn't receive the email, you can submit a request to <a href="http://uat.ezycommerce.com/#/verify">Resend </a>it.</p>
+                            
+                            <p>Got questions? Contact us at +65 6229 5979 or email us at support@ezycommerce.com</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--<footer class="thFooter">
+  <div class="container-fluid thFooterBg">
+    <nav class="blog-nav"> <a href="#/help" class="blog-nav-item">HELP AND SUPPORT <span class="glyphicon glyphicon-fot-sep">|</span></a> <a href="#/terms" class="blog-nav-item">TERMS OF USE <span class="glyphicon glyphicon-fot-sep">|</span></a> <a href="#/policy" class="blog-nav-item">PRIVACY POLICY</a> </nav>
+    <div class="clear"></div>
+    <p class="text-muted thFootCopy">@ 2014 SINGAPORE POST LIMITED. ALL RIGHTS RESERVED</p>
+    <p class="text-muted thFootPower hidden-xs">Powered by : </p>
+  </div>
+</footer>-->
+
+<script src="./ezyCommerce_files/api(1).js"></script></body></html>
